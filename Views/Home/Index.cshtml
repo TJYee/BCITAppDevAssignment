@@ -1,10 +1,23 @@
 ﻿@{
-    ViewBag.Title = "Event Listings";
+    ViewBag.Title = "Home";
 }
 
 <main>
     <section class="row" aria-labelledby="title">
-        <h1 id="title">Event Listings</h1>
-        
+        <h1 id="title">
+            Welcome to the Campus Event Management System.
+        </h1>
+    </section>
+    <section class="row" aria-labelledby="content">
+        <div id="content">
+            <div class="col-md">
+                <h2>For Event Participants</h2>
+                @Html.ActionLink("Event Listings", "Index", "Event", new { area = "" }, new { @class = "nav-link" })
+            </div>
+            <div class="col-md">
+                <h2>For Administrators</h2>
+                @Html.ActionLink("Event Management", "Index", "Event", new { area = "" }, new { @class = "nav-link" })
+            </div>
+        </div>
     </section>
 </main>
