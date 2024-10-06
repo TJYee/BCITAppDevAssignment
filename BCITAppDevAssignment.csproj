@@ -146,6 +146,7 @@
     </Compile>
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ParticipantController.cs" />
     <Compile Include="Event.cs">
       <DependentUpon>CEMS_DB_Entity.tt</DependentUpon>
     </Compile>
@@ -233,6 +234,9 @@
     <Content Include="Views\Event\Details.cshtml" />
     <Content Include="Views\Event\Edit.cshtml" />
     <Content Include="Views\Event\Index.cshtml" />
+    <Content Include="Views\Participant\Index.cshtml" />
+    <Content Include="Views\Participant\Details.cshtml" />
+    <Content Include="Views\Participant\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
