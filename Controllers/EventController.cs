@@ -12,7 +12,7 @@ namespace BCITAppDevAssignment.Controllers
 {
     public class EventController : Controller
     {
-        private CampusEventManagementSystemDatabaseContext db = new CampusEventManagementSystemDatabaseContext();
+        private CEMS_To_DB_Context db = new CEMS_To_DB_Context();
 
         // GET: Event
         public ActionResult Index()
@@ -46,7 +46,7 @@ namespace BCITAppDevAssignment.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EventID,Title,Description,StartDateTime,EndDateTime,Location,AdditionalInformationDescription")] Event @event)
+        public ActionResult Create([Bind(Include = "EventID,Title,Description,StartDateTime,EndDateTime,Location")] Event @event)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace BCITAppDevAssignment.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EventID,Title,Description,StartDateTime,EndDateTime,Location,AdditionalInformationDescription")] Event @event)
+        public ActionResult Edit([Bind(Include = "EventID,Title,Description,StartDateTime,EndDateTime,Location")] Event @event)
         {
             if (ModelState.IsValid)
             {

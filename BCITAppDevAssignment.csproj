@@ -129,18 +129,49 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="CEMS_DB_Entity.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CEMS_DB_Entity.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CEMS_DB_Entity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CEMS_DB_Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CEMS_DB_Entity.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CEMS_DB_Entity.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Event.cs">
+      <DependentUpon>CEMS_DB_Entity.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registration.cs">
+      <DependentUpon>CEMS_DB_Entity.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
     <Content Include="App_Data\CampusEventManagementSystemDatabase.mdf" />
     <Content Include="App_Data\CampusEventManagementSystemDatabase_log.ldf">
       <DependentUpon>CampusEventManagementSystemDatabase.mdf</DependentUpon>
+    </Content>
+    <Content Include="CEMS_DB_Entity.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CEMS_DB_Entity.edmx</DependentUpon>
+      <LastGenOutput>CEMS_DB_Entity.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="CEMS_DB_Entity.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CEMS_DB_Entity.edmx</DependentUpon>
+      <LastGenOutput>CEMS_DB_Entity.cs</LastGenOutput>
     </Content>
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -167,6 +198,13 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="CEMS_DB_Entity.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CEMS_DB_Entity.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="CEMS_DB_Entity.edmx.diagram">
+      <DependentUpon>CEMS_DB_Entity.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -190,6 +228,11 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Event\Create.cshtml" />
+    <Content Include="Views\Event\Delete.cshtml" />
+    <Content Include="Views\Event\Details.cshtml" />
+    <Content Include="Views\Event\Edit.cshtml" />
+    <Content Include="Views\Event\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
