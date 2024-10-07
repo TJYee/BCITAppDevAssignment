@@ -39,5 +39,12 @@ namespace BCITAppDevAssignment.Controllers
             // If we got this far, something failed; redisplay form
             return View(model);
         }
+
+        // Logout action
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return RedirectToAction("Login", "Admin");
+        }
     }
 }
