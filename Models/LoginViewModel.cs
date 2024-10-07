@@ -1,4 +1,6 @@
-﻿using System;
+﻿// This Model is to serve as a basic authentication for Admin Panel access
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
