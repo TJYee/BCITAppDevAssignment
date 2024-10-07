@@ -16,7 +16,8 @@ namespace BCITAppDevAssignment.Controllers
         // GET: Participant
         public ActionResult Index()
         {
-            return View(db.Events.ToList());
+
+            return View(db.Events.SqlQuery("SELECT * FROM Events WHERE StartDateTime > GETDATE()").ToList());
         }
 
         // GET: Participant/Details/5
