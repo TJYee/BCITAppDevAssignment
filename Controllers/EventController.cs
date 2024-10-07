@@ -1,4 +1,6 @@
-﻿using System;
+﻿// This Controller handles Admin Panel related actions for the Admin User
+
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;

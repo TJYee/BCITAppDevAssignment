@@ -1,4 +1,6 @@
-﻿using BCITAppDevAssignment.Models;
+﻿// This Controller handles all Admin Panel Login actions
+
+using BCITAppDevAssignment.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

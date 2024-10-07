@@ -1,4 +1,5 @@
-﻿using System;
+﻿// This Controller is for serving the Welcome Page
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
