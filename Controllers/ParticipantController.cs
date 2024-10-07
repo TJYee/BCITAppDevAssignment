@@ -59,26 +59,12 @@ namespace BCITAppDevAssignment.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register([Bind(Include = "RegistrationID,EventID,FirstName,LastName,Email")] Registration @registration)
         {
-            System.Diagnostics.Debug.WriteLine("babababab");
             if (ModelState.IsValid)
             {
-                System.Diagnostics.Debug.WriteLine("AHAAHAHAHA");
                 db.Registrations.Add(@registration);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
-            //try
-            //{
-            //    db.SaveChanges();
-            //    return RedirectToAction("Index");
-            //}
-            //catch (Exception ex)
-            //{
-            //    System.Diagnostics.Debug.WriteLine(ex.Message);
-            //}
-
-
             return View(@registration);
         }
     }
