@@ -17,6 +17,12 @@ namespace BCITAppDevAssignment.Controllers
         // GET: Event
         public ActionResult Index()
         {
+            // Requires Admin Login to view Admin Panel
+            if (Session["AdminUser"] == null)
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+
             return View(db.Events.ToList());
         }
 
@@ -43,6 +49,12 @@ namespace BCITAppDevAssignment.Controllers
         // GET: Event/Create
         public ActionResult Create()
         {
+            // Requires Admin Session to Create new Event
+            if (Session["AdminUser"] == null)
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+
             return View();
         }
 
