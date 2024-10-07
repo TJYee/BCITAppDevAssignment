@@ -46,7 +46,40 @@ namespace BCITAppDevAssignment.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.EventID = @event.EventID;
+            ViewBag.EventTitle = @event.Title;
+            ViewBag.EventDescription = @event.Description;
             return View();
+        }
+
+        // POST: Participant/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register([Bind(Include = "RegistrationID,EventID,FirstName,LastName,Email")] Registration @registration)
+        {
+            System.Diagnostics.Debug.WriteLine("babababab");
+            if (ModelState.IsValid)
+            {
+                System.Diagnostics.Debug.WriteLine("AHAAHAHAHA");
+                db.Registrations.Add(@registration);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            //try
+            //{
+            //    db.SaveChanges();
+            //    return RedirectToAction("Index");
+            //}
+            //catch (Exception ex)
+            //{
+            //    System.Diagnostics.Debug.WriteLine(ex.Message);
+            //}
+
+
+            return View(@registration);
         }
     }
 }
