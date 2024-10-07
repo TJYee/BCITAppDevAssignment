@@ -29,6 +29,12 @@ namespace BCITAppDevAssignment.Controllers
         // GET: Event/Details/5
         public ActionResult Details(int? id)
         {
+            // Requires Admin Session to Create new Event
+            if (Session["AdminUser"] == null)
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -65,6 +71,12 @@ namespace BCITAppDevAssignment.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "EventID,Title,Description,StartDateTime,EndDateTime,Location")] Event @event)
         {
+            // Requires Admin Session to Create new Event
+            if (Session["AdminUser"] == null)
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+
             if (ModelState.IsValid)
             {
                 db.Events.Add(@event);
@@ -78,6 +90,12 @@ namespace BCITAppDevAssignment.Controllers
         // GET: Event/Edit/5
         public ActionResult Edit(int? id)
         {
+            // Requires Admin Session to Create new Event
+            if (Session["AdminUser"] == null)
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -97,6 +115,12 @@ namespace BCITAppDevAssignment.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "EventID,Title,Description,StartDateTime,EndDateTime,Location")] Event @event)
         {
+            // Requires Admin Session to Create new Event
+            if (Session["AdminUser"] == null)
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(@event).State = EntityState.Modified;
@@ -109,6 +133,12 @@ namespace BCITAppDevAssignment.Controllers
         // GET: Event/Delete/5
         public ActionResult Delete(int? id)
         {
+            // Requires Admin Session to Create new Event
+            if (Session["AdminUser"] == null)
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -126,6 +156,12 @@ namespace BCITAppDevAssignment.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            // Requires Admin Session to Create new Event
+            if (Session["AdminUser"] == null)
+            {
+                return RedirectToAction("Login", "Admin");
+            }
+
             Event @event = db.Events.Find(id);
             db.Events.Remove(@event);
             db.SaveChanges();
