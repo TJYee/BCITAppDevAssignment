@@ -51,6 +51,21 @@
         </dd>
 
     </dl>
+    <table>
+        <tr>
+            <th>Email</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+        @foreach (Registration registration in ViewBag.Registrations)
+        {
+            <tr>
+                <td>@registration.Email</td>
+                <td>@registration.FirstName</td>
+                <td>@registration.LastName</td>
+            </tr>
+        }
+    </table>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.EventID }) |

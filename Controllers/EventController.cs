@@ -32,6 +32,11 @@ namespace BCITAppDevAssignment.Controllers
             {
                 return HttpNotFound();
             }
+            Registration registration = db.Registrations.Find(id);
+            if (registration == null)
+            {
+                ViewBag.Registrations = db.Registrations.SqlQuery("SELECT * FROM Registrations WHERE EventID = " + id).ToList();
+            }
             return View(@event);
         }
 
